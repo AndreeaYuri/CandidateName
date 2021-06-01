@@ -92,5 +92,21 @@ namespace CandidateNames.Tests
 
         }
 
+        [Test]
+        public void LettersFrequency_PassTwoNamesStartingWithS_Returns2S()
+        {
+            var candidates = new Candidates();
+            List<string> allApplicants = new List<string>();
+            allApplicants.Add("Smith, Sally");
+            allApplicants.Add("Ali, Sonia");
+            Dictionary<string, int> expectedResult = new Dictionary<string, int>();
+            expectedResult.Add("S", 2);
+
+            var result = candidates.LettersFrequency(allApplicants);
+
+            Assert.That(expectedResult, Is.EqualTo(result));
+
+        }
+
     }
 }

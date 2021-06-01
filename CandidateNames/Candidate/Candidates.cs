@@ -58,6 +58,27 @@ namespace CandidateNames.Candidate
 
         }
 
+        public Dictionary<string, int> LettersFrequency(List<string> applicantsList)
+        {
+            Dictionary<string, int> result = new Dictionary<string, int>();
+
+            foreach (var applicant in applicantsList)
+            {
+                string letter = applicant.Substring(applicant.IndexOf(",") + 2, 1);
+
+                if (result.ContainsKey(letter))
+                {
+                    result[letter] += 1;
+                }
+                else
+                {
+                    result.Add(letter, 1);
+                }
+            }
+
+            return result;
+        }
+
 
     }
 
