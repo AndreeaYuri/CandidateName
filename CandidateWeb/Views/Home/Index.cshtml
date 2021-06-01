@@ -1,0 +1,134 @@
+﻿@{
+    ViewData["Title"] = "Candidate Page";
+}
+
+<div class="text-center">
+    <div class="row">
+        <div class="col-md-2">
+            @if (Model.Developers.Count > 0)
+            {
+
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Developers</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Developers)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @item
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+
+
+            }
+        </div>
+        <div class="col-md-2">
+            @if (Model.Testers.Count > 0)
+            {
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Testers</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.Testers)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @item
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+
+
+            }
+        </div>
+
+        <div class="col-md-3">
+            @if (Model.AllCandidates.Count > 0)
+            {
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">All Candidates</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.AllCandidates)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @item
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+
+
+            }
+
+        </div>
+        <div class="col-md-3">
+            @if (Model.AllCleanedCandidates.Count > 0)
+            {
+
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Cleaned Candidates</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.AllCleanedCandidates)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @item
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+
+
+            }
+        </div>
+        <div class="col-md-2">
+            @if (Model.FrequencyLetters.Count > 0)
+            {
+
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">Letter Frequency</th>
+                        </tr>
+                    </thead>
+                    @foreach (var item in Model.FrequencyLetters)
+                    {
+                        <tbody>
+                            <tr>
+                                <td>
+                                    @item.Key - @item.Value
+                                </td>
+                            </tr>
+                        </tbody>
+                    }
+                </table>
+
+
+            }
+        </div>
+
+    </div>
+</div>
