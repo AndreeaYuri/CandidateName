@@ -50,3 +50,5 @@ Ali, Sonia
 M - 1
 S - 2
 ```
+
+In the future it can be implemented Mediator pattern and use a repository as constructor injector
