@@ -38,7 +38,27 @@ namespace CandidateNames.Candidate
             return false;
         }
 
-       
+        public List<string> CleaningApplicantsList(List<string> applicantsList)
+        {
+            if (applicantsList == null)
+            {
+                throw new NullReferenceException();
+
+            }
+            List<string> allStudClean = new List<string>();
+
+            foreach (var applicant in applicantsList)
+            {
+                //if the student's name is valid add it to the clean list
+                if (IsaValidName(applicant))
+                    allStudClean.Add(applicant);
+            }
+
+            return allStudClean;
+
+        }
+
+
     }
 
 }

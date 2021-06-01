@@ -65,5 +65,32 @@ namespace CandidateNames.Tests
             Assert.That(false, Is.EqualTo(result));
         }
 
+        [Test]
+        public void CleaningApplicantsList_OneValidName_ReturnsTheValidName()
+        {
+            var candidates = new Candidates();
+            List<string> allApplicants = new List<string>();
+            allApplicants.Add("Gherca, Andreea");
+
+            List<string> result = new List<string>();
+            result.Add("Gherca, Andreea");
+
+            Assert.That(result, Is.EqualTo(candidates.CleaningApplicantsList(allApplicants)));
+        }
+
+        [Test]
+        public void CleaningApplicantsList_OneValidAndOneInvalidName_ReturnsTheValidName()
+        {
+            var candidates = new Candidates();
+            List<string> allApplicants = new List<string>();
+            allApplicants.Add("Gherca,, Andreea");
+            allApplicants.Add("Brown, John");
+
+            Assert.That(candidates.CleaningApplicantsList(allApplicants).Count(p => p == "Gherca,, Andreea"), Is.EqualTo(0));
+            Assert.That(candidates.CleaningApplicantsList(allApplicants).Any(p => p == "Brown, John"));
+            Assert.That(true, Is.EqualTo(candidates.CleaningApplicantsList(allApplicants).Contains("Brown, John")));
+
+        }
+
     }
 }
